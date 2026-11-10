@@ -1,0 +1,15 @@
+build/
+*.o
+*.obj
+*.exe
+elevator_sim
+elevator_tests
+
+elevator_state.csv
+*.tmp.csv
+
+.vscode/
+.idea/
+.vs/
+*.swp
+.DS_Store

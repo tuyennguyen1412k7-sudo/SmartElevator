@@ -1,0 +1,18 @@
+digraph G { graph [fontname="DejaVu Sans", nodesep=0.35, ranksep=0.55, pad=0.15];
+node [shape=record, fontname="DejaVu Sans", fontsize=12, style=filled, fillcolor="#FFFFF0"];
+edge [fontname="DejaVu Sans", fontsize=10];
+Controller [label="{ElevatorController|...}", fillcolor="#E8F0FF"];
+Strat [label="{DispatchStrategy|«abstract»}"];
+SF [label="{StrategyFactory|+ create(name)\l}"];
+RF [label="{RequestFactory|+ makeHall() / makeCar()\l+ makeEmergency()\l}"];
+Req [label="{Request|«abstract»}"];
+Bus [label="{EventBus|+ attach() / publish()\l}"];
+Elev [label="{Elevator|...}"];
+Controller -> Strat [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Controller -> SF [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Controller -> RF [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Controller -> Req [arrowtail=diamond, dir=back, arrowhead=none, headlabel="0..*", label=" requestLog_"];
+Controller -> Bus [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Elev -> Bus [style=dashed, arrowhead=vee, label=" publish"];
+Controller -> Elev [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1..*"];
+}

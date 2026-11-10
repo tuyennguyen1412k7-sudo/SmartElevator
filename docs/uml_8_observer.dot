@@ -1,0 +1,10 @@
+digraph G { graph [fontname="DejaVu Sans", nodesep=0.35, ranksep=0.55, pad=0.15];
+node [shape=record, fontname="DejaVu Sans", fontsize=12, style=filled, fillcolor="#FFFFF0"];
+edge [fontname="DejaVu Sans", fontsize=10]; rankdir=BT;
+EL [label="{EventListener «abstract»|+ onEvent(const Event&)  \{abstract\}\l+ ~EventListener()  «virtual»\l}", fillcolor="#E8F0FF"];
+CL [label="{ConsoleLogger|- out_ : ostream&\l- showMoves_ : bool\l}"];
+SC [label="{StatsCollector|- counts_, movedByElevator_\l- waits_, rides_\l|+ averageWait() / maxWait()\l+ report(ostream&)\l}"];
+CL -> EL [arrowhead=empty]; SC -> EL [arrowhead=empty];
+Bus [label="{EventBus|+ attach(listener)\l+ publish(event)\l}"];
+Bus -> EL [arrowtail=odiamond, dir=back, arrowhead=none, headlabel="0..*"];
+}

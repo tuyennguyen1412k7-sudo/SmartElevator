@@ -1,0 +1,8 @@
+# Kịch bản cơ bản: tick,lệnh,tham số...
+# passenger,<id>,<kg>,<từ tầng>,<đến tầng>
+0,passenger,1,70,0,5
+0,passenger,2,65,3,0
+2,passenger,3,80,-1,6
+3,car,2,9
+4,hall,8,down
+6,passenger,4,55,9,2

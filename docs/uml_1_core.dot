@@ -1,0 +1,21 @@
+digraph G { graph [fontname="DejaVu Sans", nodesep=0.35, ranksep=0.55, pad=0.15];
+node [shape=record, fontname="DejaVu Sans", fontsize=12, style=filled, fillcolor="#FFFFF0"];
+edge [fontname="DejaVu Sans", fontsize=10];
+Controller [label="{ElevatorController|- tick_ : long\l- elevators_ : vector\<unique_ptr\<Elevator\>\>\l- lastPassengerId_ : int\l|+ callElevator() / pressFloor()\l+ emergencyCall() / addPassenger()\l+ setOutOfService() / tick()\l+ findRequests(kind)\l+ elevatorsByLoad() / waitingList()\l}", fillcolor="#E8F0FF"];
+Building [label="{Building|- lowest_, highest_ : int\l|+ validate(floor)\l}"];
+Floor [label="{Floor|- waiting_ : deque\<Passenger\>\l|+ addWaiting() / removeWaiting()\l}"];
+Elevator [label="{Elevator|- floor_ : int\l- heading_ : Direction\l- onboard_ : vector\<Passenger\>\l- carStops_ : set\<int\>\l|+ assign(Request)\l+ board(Passenger)\l+ tick()\l+ takeRecalls()\l+ describe() : string\l}", fillcolor="#E8F0FF"];
+Door [label="{Door|- open_ : bool\l|+ open() / close()\l}"];
+State [label="{ElevatorState|«abstract»}"];
+Passenger [label="{Passenger|id, origin, destination\lweight : Weight\l|+ direction() / describe()\l}"];
+Weight [label="{Weight «value type»|- kg_ : double\l|+ operator+, -, *, \<, ==\l}"];
+Controller -> Building [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Controller -> Elevator [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1..*"];
+Building -> Floor [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1..*"];
+Floor -> Passenger [arrowtail=diamond, dir=back, arrowhead=none, headlabel="0..*", label=" chờ"];
+Elevator -> Door [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Elevator -> State [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1", label=" trạng thái"];
+Elevator -> Passenger [arrowtail=diamond, dir=back, arrowhead=none, headlabel="0..*", label=" trong cabin"];
+Passenger -> Weight [arrowtail=diamond, dir=back, arrowhead=none, headlabel="1"];
+Elevator -> Building [style=dashed, arrowhead=vee, label=" tham chiếu"];
+}

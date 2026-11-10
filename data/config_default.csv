@@ -1,0 +1,11 @@
+# Cấu hình hệ thống thang máy
+# building,<tầng thấp nhất>,<tầng cao nhất>
+building,-1,9
+# dwell: số tick cửa mở
+dwell,2
+# strategy: nearest | eta | least-load
+strategy,eta
+# elevator,<mã>,<tầng xuất phát>,<tải trọng kg>
+elevator,1,0,800
+elevator,2,4,800
+elevator,3,9,600

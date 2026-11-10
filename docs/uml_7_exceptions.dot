@@ -1,0 +1,13 @@
+digraph G { graph [fontname="DejaVu Sans", nodesep=0.35, ranksep=0.55, pad=0.15];
+node [shape=record, fontname="DejaVu Sans", fontsize=12, style=filled, fillcolor="#FFFFF0"];
+edge [fontname="DejaVu Sans", fontsize=10]; rankdir=RL; nodesep=0.25;
+RE [label="{std::runtime_error}", fillcolor="#EEEEEE"];
+EE [label="{ElevatorError|gốc mọi lỗi nghiệp vụ\l|+ kind() : string  «virtual»\l}", fillcolor="#E8F0FF"];
+VE [label="{ValidationError|dữ liệu / cấu hình sai\l}"];
+IF [label="{InvalidFloorError|- floor_ : int\l}"];
+OE [label="{OverloadError|- attemptedKg_, limitKg_\l}"];
+UE [label="{ElevatorUnavailableError|- id_ : int\l}"];
+FE [label="{FileError|lỗi mở/đọc/ghi file\l}"];
+PE [label="{ParseError|- line_ : int\l}"];
+EE -> RE [arrowhead=empty]; VE -> EE [arrowhead=empty]; IF -> EE [arrowhead=empty]; OE -> EE [arrowhead=empty]; UE -> EE [arrowhead=empty]; FE -> EE [arrowhead=empty]; PE -> FE [arrowhead=empty];
+}

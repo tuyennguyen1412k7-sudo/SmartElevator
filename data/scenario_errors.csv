@@ -1,0 +1,9 @@
+# Các lệnh lỗi: hệ thống phải báo lỗi từng lệnh và vẫn chạy tiếp
+0,passenger,1,70,0,99
+0,hall,50,up
+0,car,9,3
+0,hall,9,up
+0,strategy,khong-ton-tai
+0,teleport,1
+0,passenger,2,-5,0,3
+0,passenger,3,70,2,6
